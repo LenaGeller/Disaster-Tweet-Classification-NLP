@@ -76,3 +76,5 @@ The full implementation and experiments are documented in the
 The trained model was deployed as a **web application using Gradio**, allowing users to input arbitrary tweets and receive real-time disaster classification predictions.
 The application loads the saved model hosted on Hugging Face.
 
+A detailed video explanation of the project can be found [here](https://drive.google.com/file/d/1N8PGtNuSFkdpL0qqZlnwiucvsXWwGfMW/view?usp=sharing)
+
