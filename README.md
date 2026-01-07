@@ -1,21 +1,15 @@
 # Disaster-Tweet-Classification-using-Natural-Language-Processing
 ## Overview
 
-This project focuses on detecting real disaster-related events from social media posts using natural language processing and machine learning techniques. Social media platforms such as Twitter are often the first source of information during emergencies, and being able to automatically distinguish real disaster reports from unrelated content can support faster situational awareness and response.
+Social media platforms such as Twitter are often the first channels through which people report disaster events, frequently before official news outlets respond. An intelligent system capable of automatically identifying real disaster-related posts can support faster emergency response and potentially save lives.
 
-The project was originally developed as a Google Colab notebook combining explanatory text and executable code. This repository restructures that work into a GitHub-friendly format while preserving the original logic, experiments, and results.
+In this project, we develop a machine learning–based text classification system to determine whether a tweet describes a real disaster or not. The primary objective is **not to miss real disaster events**, making **recall for the disaster class (class 1)** the most critical evaluation metric. Missing a real disaster tweet may have far more serious consequences than generating a false alarm.
 
 ![CM](output/CM.png)
 
-## Motivation
-
-During natural disasters or emergency situations, people frequently post real-time updates on social media. However, not all posts containing keywords like *fire*, *flood*, or *earthquake* refer to actual disasters. The goal of this project is to build a classification model that can automatically identify whether a tweet describes a real disaster event or not.
-
-Such a system could potentially be used as a component in early-warning systems, crisis monitoring tools, or emergency response dashboards.
-
 ## Dataset
 
-The project uses a **publicly available Kaggle dataset** containing approximately **10,000 labeled tweets**.
+The project uses a **“Real or Not? NLP with Disaster Tweets”** containing approximately **10,000 labeled tweets**.
 
 - Target variable: target
 
@@ -27,5 +21,55 @@ The project uses a **publicly available Kaggle dataset** containing approximatel
 
   - Tweet text (text)
 
-The dataset is commonly used for introductory and intermediate NLP classification tasks and provides a realistic example of noisy, short-form text data.
+## Methodology
+
+The project follows a step-by-step, experimental approach, gradually increasing model complexity and evaluating each method based on recall performance.
+
+### 1. Classical Machine Learning Baselines
+
+We began with traditional machine learning approaches using:
+
+- TF-IDF vectorization
+
+- Logistic Regression
+
+- Linear Support Vector Classifier (Linear SVC)
+
+Initial recall scores for the disaster class ranged between **0.69** and **0.74**, which was insufficient for the project goal.
+
+Hyperparameter tuning (regularization strength, n-gram ranges) and cross-validation using the **F1-score** were applied, but improvements remained marginal.
+
+## 2. Neural Network Approach
+
+We then tested a **Multi-Layer Perceptron (MLPClassifier)** to evaluate whether a neural model could improve performance. However, this approach did not yield a significant improvement in recall.
+
+## 3. Transformer-Based Models
+
+Next, we explored transformer-based language models.
+
+- **bert-base-uncased** was used to generate contextual embeddings, followed by training classical classifiers on top of these representations.
+The results were not satisfactory.
+
+- The decisive improvement came from **BERTweet (vinai/bertweet-base)** — a transformer model **pre-trained specifically on Twitter data**, including hashtags, emojis, and informal language.
+
+The model was **fine-tuned using Hugging Face’s Trainer API**, with attention to training stability (small batch size, early stopping).
+
+## Results
+
+The final BERTweet-based model achieved:
+
+- Recall (Disaster class): 0.886
+
+- Overall F1-score: ~0.94
+
+- Accuracy: ~0.94
+
+These results meet the primary objective of detecting the vast majority of real disaster tweets while maintaining an acceptable error rate.
+
+![CR](output/CR.png)
+
+## Deployment
+
+The trained model was deployed as a **web application using Gradio**, allowing users to input arbitrary tweets and receive real-time disaster classification predictions.
+The application loads the saved model hosted on Hugging Face.
 
