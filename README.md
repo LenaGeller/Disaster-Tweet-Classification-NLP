@@ -1,4 +1,9 @@
 # Disaster-Tweet-Classification-using-Natural-Language-Processing
+
+## Live Demo
+This project includes a live demo deployed with **Gradio** on **Hugging Face Spaces**:  
+[Try it](https://lenageller-disaster-tweet-classifier.hf.space/?__theme=system&deep_link=qxmQj7QlGGI)
+
 ## Overview
 
 Social media platforms such as Twitter are often the first channels through which people report disaster events, frequently before official news outlets respond. An intelligent system capable of automatically identifying real disaster-related posts can support faster emergency response and potentially save lives.
