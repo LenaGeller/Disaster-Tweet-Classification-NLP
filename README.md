@@ -68,6 +68,9 @@ These results meet the primary objective of detecting the vast majority of real 
 
 ![CR](output/CR.png)
 
+The full implementation and experiments are documented in the
+[Notebook](disaster_tweet_classification.ipynb)
+
 ## Deployment
 
 The trained model was deployed as a **web application using Gradio**, allowing users to input arbitrary tweets and receive real-time disaster classification predictions.
