@@ -4,6 +4,8 @@
 This project includes a live demo deployed with **Gradio** on **Hugging Face Spaces**:  
 ## [Try it](https://lenageller-disaster-tweet-classifier.hf.space/?__theme=system&deep_link=qxmQj7QlGGI)
 
+A detailed video explanation of the project can be found [here](https://drive.google.com/file/d/1N8PGtNuSFkdpL0qqZlnwiucvsXWwGfMW/view?usp=sharing)
+
 ## Overview
 
 Social media platforms such as Twitter are often the first channels through which people report disaster events, frequently before official news outlets respond. An intelligent system capable of automatically identifying real disaster-related posts can support faster emergency response and potentially save lives.
@@ -80,6 +82,4 @@ The full implementation and experiments are documented in the
 
 The trained model was deployed as a **web application using Gradio**, allowing users to input arbitrary tweets and receive real-time disaster classification predictions.
 It can be tested directly [here](https://lenageller-disaster-tweet-classifier.hf.space/?__theme=system&deep_link=qxmQj7QlGGI)
-
-A detailed video explanation of the project can be found [here](https://drive.google.com/file/d/1N8PGtNuSFkdpL0qqZlnwiucvsXWwGfMW/view?usp=sharing)
 
